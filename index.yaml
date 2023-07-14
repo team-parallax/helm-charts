@@ -1,13 +1,16 @@
 apiVersion: v1
 entries:
-  helm-chart-test:
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2019-04-16T09:12:27.955019+02:00
-    description: A Helm chart for Kubernetes
-    digest: 35a4e31bfacc496f1b1bce664652916bb8701cc9df77f1b90534f5234ff297a6
-    name: helm-chart-test
+  fider-app:
+  - apiVersion: v2
+    created: "2023-07-14T23:30:57.020433844+02:00"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.5.6
+    description: A Helm chart for Fider application
+    digest: d26e7891f7e01f2dbb8f8f0b1d630c4a90c53ec28d30b8dc1c38c6cb2166ce83
+    name: fider-app
     urls:
-    - helm-chart-test-0.1.0.tgz
+    - https://team-parallax.github.io/helm-charts/fider-app-0.1.0.tgz
     version: 0.1.0
-generated: 2019-04-16T09:12:27.951683+02:00
+generated: "2023-07-14T23:30:57.015268963+02:00"

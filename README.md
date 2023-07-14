@@ -10,5 +10,5 @@ create ci/cd to package the charts with:
 ```
 helm lint helm-chart-sources/*
 helm package helm-chart-sources/*
-helm repo index --url https://mattiaperi.github.io/helm-chart/ .
+helm repo index --url https://team-parallax.github.io/helm-charts/ .
 ```
