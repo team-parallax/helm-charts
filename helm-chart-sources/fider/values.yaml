@@ -15,16 +15,16 @@ app:
   ingress:
     enabled: true
     hosts:
-      - host: feedback.staging.team-parallax.com
+      - host: feedback.example.com
         paths:
           - path: /
             pathType: ImplementationSpecific
-  env:
-    BASE_URL: https://feedback.staging.team-parallax.com
-    JWT_SECRET: VERY_STRONG_SECRET_SHOULD_BE_USED_HERE
-    EMAIL_NOREPLY: noreply@yourdomain.com
-    EMAIL_SMTP_HOST: mailhog.staging.team-parallax.com
-    EMAIL_SMTP_PORT: 587
-    EMAIL_SMTP_USERNAME: user@yourdomain.com
-    EMAIL_SMTP_PASSWORD: s0m3p4ssw0rd
-    EMAIL_SMTP_ENABLE_STARTTLS: 'false'
+  email:
+    noreply: noreply@yourdomain.com
+    smtp:
+      host: mailhog.example.com
+      port: 587
+      username: user@yourdomain.com
+      password: s0m3p4ssw0rd
+      starttls: 'false'
+  jwt_secret: VERY_STRONG_SECRET_SHOULD_BE_USED_HERE

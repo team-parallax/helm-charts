@@ -1,7 +1,8 @@
 apiVersion: v2
 name: fider-app
 description: A Helm chart for Fider application
-version: 0.1.0
+version: 0.1.1
+appVersion: SHA_e0e7dcd3cc4b81107e0d1cdf14e1a0ead35a11b1
 dependencies:
   - name: postgresql
     version: 12.5.6
