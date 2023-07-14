@@ -1,0 +1,31 @@
+{{- if .Values.app.ingress.enabled -}}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    cert-manager.io/cluster-issuer: letsencrypt-prod-public
+  name: {{ .Release.Name }}-ingress
+spec:
+  tls:
+  {{- range .Values.app.ingress.hosts }}
+    - hosts:
+        - {{ .host }}
+      secretName: {{ $.Release.Name }}-tls
+  {{- end }}
+  rules:
+  {{- range .Values.app.ingress.hosts }}
+  - host: {{ .host }}
+    http:
+      paths:
+      {{- range .paths }}
+      - path: {{ .path }}
+        pathType: {{ .pathType }}
+        backend:
+          service:
+            name: {{ $.Release.Name }}-service
+            port:
+              number: 80
+      {{- end }}
+  {{- end }}
+  {{- end }}

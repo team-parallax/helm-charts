@@ -1,0 +1,8 @@
+apiVersion: v2
+name: fider-app
+description: A Helm chart for Fider application
+version: 0.1.0
+dependencies:
+  - name: postgresql
+    version: 12.5.6
+    repository: https://charts.bitnami.com/bitnami

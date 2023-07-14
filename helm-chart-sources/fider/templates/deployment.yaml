@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Release.Name }}
+          image: "{{ .Values.app.image.repository }}:{{ .Values.app.image.tag }}"
+          env:
+            - name: BASE_URL
+              value: {{ .Values.app.env.BASE_URL }}
+            - name: DATABASE_URL
+              value: postgres://{{ .Values.postgresql.auth.username }}:{{ .Values.postgresql.auth.password }}@{{ .Release.Name }}-postgresql:5432/{{ .Values.postgresql.auth.database }}?sslmode=disable
+            - name: JWT_SECRET
+              value: {{ .Values.app.env.JWT_SECRET }}
+            - name: EMAIL_NOREPLY
+              value: {{ .Values.app.env.EMAIL_NOREPLY | quote }}
+            - name: EMAIL_SMTP_HOST
+              value: {{ .Values.app.env.EMAIL_SMTP_HOST | quote }}
+            - name: EMAIL_SMTP_PORT
+              value: {{ .Values.app.env.EMAIL_SMTP_PORT | quote }}
+            - name: EMAIL_SMTP_USERNAME
+              value: {{ .Values.app.env.EMAIL_SMTP_USERNAME | quote }}
+            - name: EMAIL_SMTP_PASSWORD
+              value: {{ .Values.app.env.EMAIL_SMTP_PASSWORD | quote }}
+            - name: EMAIL_SMTP_ENABLE_STARTTLS
+              value: {{ .Values.app.env.EMAIL_SMTP_ENABLE_STARTTLS | quote }}
+          ports:
+            - containerPort: 3000

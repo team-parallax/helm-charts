@@ -1,0 +1,30 @@
+postgresql:
+  auth:
+    username: fider
+    password: s0m3g00dp4ssw0rd
+    database: fider
+
+app:
+  image:
+    repository: getfider/fider
+#    tag: stable
+    tag: SHA_e0e7dcd3cc4b81107e0d1cdf14e1a0ead35a11b1
+  service:
+    type: ClusterIP
+    port: 80
+  ingress:
+    enabled: true
+    hosts:
+      - host: feedback.staging.team-parallax.com
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+  env:
+    BASE_URL: https://feedback.staging.team-parallax.com
+    JWT_SECRET: VERY_STRONG_SECRET_SHOULD_BE_USED_HERE
+    EMAIL_NOREPLY: noreply@yourdomain.com
+    EMAIL_SMTP_HOST: mailhog.staging.team-parallax.com
+    EMAIL_SMTP_PORT: 587
+    EMAIL_SMTP_USERNAME: user@yourdomain.com
+    EMAIL_SMTP_PASSWORD: s0m3p4ssw0rd
+    EMAIL_SMTP_ENABLE_STARTTLS: 'false'
