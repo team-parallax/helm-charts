@@ -3,7 +3,6 @@ postgresql:
     username: fider
     password: s0m3g00dp4ssw0rd
     database: fider
-
 app:
   image:
     repository: getfider/fider
