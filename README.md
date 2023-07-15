@@ -9,12 +9,12 @@ from: https://medium.com/@mattiaperi/create-a-public-helm-chart-repository-with-
 create ci/cd to package the charts with:
 ```
 helm lint helm-chart-sources/*
-helm package helm-chart-sources/*
-helm repo index --url https://team-parallax.github.io/helm-charts/ .
+helm package helm-chart-sources/* -d packaged-charts/
+helm repo index --url https://team-parallax.github.io/helm-charts/packaged-charts/ packaged-charts/
 ```
 
 ## Install repo/chart
 ```
-helm repo add narkuma-charts https://team-parallax.github.io/helm-charts/
+helm repo add narkuma-charts https://team-parallax.github.io/helm-charts/packaged-charts/
 helm install fider-app narkuma-charts/fider
 ```
