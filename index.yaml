@@ -3,7 +3,20 @@ entries:
   fider:
   - apiVersion: v2
     appVersion: SHA_e0e7dcd3cc4b81107e0d1cdf14e1a0ead35a11b1
-    created: "2023-07-15T11:16:37.153898067+02:00"
+    created: "2023-07-15T11:19:27.181181539+02:00"
+    dependencies:
+    - name: postgresql
+      repository: https://charts.bitnami.com/bitnami
+      version: 12.5.6
+    description: A Helm chart for Fider application
+    digest: eba624560184aedfc1364fbf05e329c61b37e4234b7ed7e37e5a6d474c1f8a96
+    name: fider
+    urls:
+    - https://team-parallax.github.io/helm-charts/fider-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: SHA_e0e7dcd3cc4b81107e0d1cdf14e1a0ead35a11b1
+    created: "2023-07-15T11:19:27.186821259+02:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -17,7 +30,7 @@ entries:
   fider-app:
   - apiVersion: v2
     appVersion: SHA_e0e7dcd3cc4b81107e0d1cdf14e1a0ead35a11b1
-    created: "2023-07-15T11:16:37.164780371+02:00"
+    created: "2023-07-15T11:19:27.201962779+02:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -29,7 +42,7 @@ entries:
     - https://team-parallax.github.io/helm-charts/packaged-charts/fider-app-0.1.1.tgz
     version: 0.1.1
   - apiVersion: v2
-    created: "2023-07-15T11:16:37.158047541+02:00"
+    created: "2023-07-15T11:19:27.195207732+02:00"
     dependencies:
     - name: postgresql
       repository: https://charts.bitnami.com/bitnami
@@ -40,4 +53,4 @@ entries:
     urls:
     - https://team-parallax.github.io/helm-charts/packaged-charts/fider-app-0.1.0.tgz
     version: 0.1.0
-generated: "2023-07-15T11:16:37.147006689+02:00"
+generated: "2023-07-15T11:19:27.173988184+02:00"
